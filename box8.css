@@ -1,0 +1,41 @@
+.box8-container{
+    margin: 0 auto;
+    padding:30px;
+    position: relative;
+}
+.box8-item{
+    margin:0 auto;
+    width:160px;
+    height:320px;
+    background:white;
+    text-align: center;
+}
+.box8-item img{
+    margin: 50px 0 15px;
+    width:90px;
+    height:auto;
+}
+.box8-item p {
+    margin:0 auto;
+    width:100px; 
+    line-height: 22px;
+    height:88px;
+    word-break: break-all;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: relative;
+}
+.box8-item p::after{
+    /* ie文字超出专用 */
+    content:'...';
+    width: 16px;
+    display: block;
+    background: white;
+    position: absolute;
+    bottom:0;
+    right:2px;
+    
+}

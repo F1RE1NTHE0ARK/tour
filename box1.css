@@ -1,0 +1,11 @@
+.box1-container{
+    overflow: hidden;
+    padding:3%;
+}
+.box1-left{
+    margin-top: 0px;
+    float:left;
+}
+.box1-right{
+    float:right;
+}
