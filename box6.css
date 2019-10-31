@@ -1,0 +1,172 @@
+.box6-container{
+    margin: 0 auto;
+    padding:3%;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: -moz-box;
+    display: -moz-flex;
+    display: -webkit-box;
+    display: flex;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+.box6-container i{
+    margin:0 5px 5px 0;
+    flex-grow: 1;
+    background: rgba(0,0,0,.6);
+    color:#f7f7f7;
+    display: table-cell;
+    height: 250px;
+    vertical-align: middle;
+    text-align: center;
+    font-style:normal;
+    font-weight:bolder;
+    font-size:30px;
+}
+.box6-container i:nth-child(1){
+    width:190px;
+}
+.box6-container i:nth-child(2){
+    width:420px;
+}
+.box6-container i:nth-child(3){
+    width:190px;
+}
+.box6-container i:nth-child(4){
+    width:230px;
+}
+.box6-container i:nth-child(5){
+    width:300px;
+}
+.box6-container i:nth-child(6){
+    width:250px;
+}
+.box6-container i:nth-child(7){
+    width:150px;
+}
+.box6-container i:nth-child(8){
+    width:490px;
+}
+.box6-container i:nth-child(9){
+    width:220px;
+}
+.box6-container i:nth-child(10){
+    width:510px;
+}
+.box6-container i:nth-child(11){
+    width:110px;
+}
+.box6-container i:nth-child(12){
+    width:430px;
+}
+.box6-container i:nth-child(13){
+    width:300px;
+}
+.box6-container i:nth-child(14){
+    width:230px;
+}
+.box6-container i:nth-child(15){
+    width:400px;
+}
+
+/*flex兼容*/
+/*display*/
+.display_flex{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+.display_flex > *{
+    display: block;
+}
+.display_inline-flex{
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: -webkit-inline-flex;
+    display: inline-flex;    
+}
+.display_inline-flex > *{
+    display: block;
+}
+/*伸缩流方向*/
+.flex-direction_column{
+    -webkit-box-orient: vertical;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+}
+/*主轴对齐*/
+.justify-content_flex-center{
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+.justify-content_flex-end{
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
+}
+.justify-content_flex-justify{
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+}
+/*侧轴对齐*/
+.align-items_flex-start{
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+}
+.align-items_flex-end{
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    -webkit-align-items: flex-end;
+    align-items: flex-end;
+}
+.align-items_center{
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.align-items_baseline{
+    -webkit-box-align: baseline;
+    -ms-flex-align: baseline;
+    -webkit-align-items: baseline;
+    align-items: baseline;
+}
+/*伸缩性*/
+.flex_auto{
+    -webkit-box-flex: 1;
+    -ms-flex: auto;
+    -webkit-flex: auto;
+    flex: auto;
+}
+.flex_1{
+    width: 0;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;    
+}
+/*显示顺序*/
+.order_2{
+    -webkit-box-ordinal-group: 2;
+    -ms-flex-order: 2;
+    -webkit-order: 2;
+    order: 2;
+}
+.order_3{
+    -webkit-box-ordinal-group: 3;
+    -ms-flex-order: 3;
+    -webkit-order: 3;
+    order: 3;
+}

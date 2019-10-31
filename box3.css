@@ -1,0 +1,19 @@
+.box3-container{
+    padding:3%;
+    overflow: hidden;
+}
+.box3-left{
+    float:left;
+    height:0;
+    width: 20%;
+    padding-bottom:30%;
+    background: lightskyblue;
+}
+.box3-right{
+    float:right;
+}
+.box3-box{
+    height: 357px;
+    display: table-cell;
+    vertical-align: middle;
+}
