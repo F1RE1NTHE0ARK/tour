@@ -16,7 +16,7 @@
 	<link rel="stylesheet" href="box10.css">
 </head>
 <body>
-	<!-- <h1>盒子不用保持宽高比，但子元素必须保持宽高比（float除外）</h1>
+	<h1>盒子不用保持宽高比，但子元素必须保持宽高比（float除外）</h1>
 	<br>
 	<hr>
 	<h2>左右浮动，（缩放时）盒子是否撑开都行，内容也可以换行,写死width</h2>
@@ -175,7 +175,7 @@
 					<p>飞机拉对方杰拉德附近垃圾的发掘的；林凤娇阿里的肌肤垃圾地方垃圾地方垃圾附近奥朗德肌肤拉动健身房垃圾了对肌肤房间爱大家发动机</p>
 				</div>
 			</div>
-		</div> -->
+		</div>
 		<h2>下滚动动画，滚回收缩</h2>
 		<div class="box">
 			<div class="container box9-container">
@@ -227,13 +227,13 @@
 			</div>
 			</div>
 		</div>
-		<!-- <h2>通过改变transform-origin来改变变形发生的方向</h2>
+		<h2>通过改变transform-origin来改变变形发生的方向</h2>
 		<h2>可以让hover实现两段动画</h2>
 		<div class="box">
 			<div class="container box10-container">
 				<p class="box10">MENU</p>
 			</div>
-		</div> -->
+		</div>
 	<script>
 		//遍历所有的父元素
 		//function searchFromRoot(obj){
@@ -268,207 +268,208 @@
 		//}
 
 		//竖向瀑布流
-		// let demo = {
-		// 	column:0,
-		// 	map_width:0,
-		// 	item_count:0,
-		// 	row:0,
-		// 	columnHeight:[],
-		// 	min:0,
-		// 	columnGroup:{},
-		// 	mapInit(map, item_count, item_width){
-		// 		let ele = document.getElementsByClassName(item_count);
-		// 		map_width = document.getElementsByClassName(map)[0].offsetWidth;//画布宽度
-		// 		column = Math.floor( map_width / item_width );//计算后列数
-		// 		row = Math.ceil( ele.length / column );//计算行数
-		// 		this.itemSort(ele);
-		// 		console.log(this.columnHeight);
-		// 	},
-		// 	itemSort(ele){
-		// 		for(let i = 0; i<row; i++){
-		// 			if(i == 0){
-		// 				for(let j = 0; j<column; j++){
-		// 					if(j == 0){
-		// 						ele[j].style.left = j*230 + 30 + 'px';
-		// 						ele[j].style.top =  30 + 'px';
-		// 						ele[j].setAttribute("data-line",j+1);
-		// 					}
-		// 					else{
-		// 						ele[j].style.left = j*240 + 30 + 'px';
-		// 						ele[j].style.top =  30 + 'px';
-		// 						ele[j].setAttribute("data-line",j+1);
-		// 					}
-		// 				}
-		// 			}
-		// 			else{
-		// 				continue;
-		// 			}
-		// 		}
-		// 		for(let i = 0; i<row; i++){
-		// 			this.columnGroup = document.querySelectorAll(`div[data-line='${i}']`);
-		// 			this.calculateFirstHeight(i-1,this.columnGroup);
-		// 		}
-		// 		for(let j = column; j<ele.length; j++){
-		// 			this.getTheMin();
-		// 			ele[j].style.top = this.columnHeight[this.min] + 30 + parseInt( j / 5)*10 + 'px';
-		// 			this.columnHeight[this.min] = parseInt(this.columnHeight[this.min]) + ele[j].offsetHeight;
-		// 			ele[j].setAttribute("data-line",this.min);
-		// 			if(this.min ==0){
-		// 				ele[j].style.left = 30 + 'px';
-		// 			}
-		// 			else{
-		// 				ele[j].style.left = this.min*230 + 30 + 10*this.min +'px';
-		// 			}
-		// 		}
-		// 	},
-		// 	getTheMin(){
-		// 		this.min = this.columnHeight[0];
-		// 		for(let i = 0; i<this.columnHeight.length; i++){
-		// 			this.columnHeight[this.min]<=this.columnHeight[i]?this.min = this.min : this.min = i;
+		let demo = {
+			column:0,
+			map_width:0,
+			item_count:0,
+			row:0,
+			columnHeight:[],
+			min:0,
+			columnGroup:{},
+			mapInit(map, item_count, item_width){
+				let ele = document.getElementsByClassName(item_count);
+				map_width = document.getElementsByClassName(map)[0].offsetWidth;//画布宽度
+				column = Math.floor( map_width / item_width );//计算后列数
+				row = Math.ceil( ele.length / column );//计算行数
+				this.itemSort(ele);
+				console.log(this.columnHeight);
+			},
+			itemSort(ele){
+				for(let i = 0; i<row; i++){
+					if(i == 0){
+						for(let j = 0; j<column; j++){
+							if(j == 0){
+								ele[j].style.left = j*230 + 30 + 'px';
+								ele[j].style.top =  30 + 'px';
+								ele[j].setAttribute("data-line",j+1);
+							}
+							else{
+								ele[j].style.left = j*240 + 30 + 'px';
+								ele[j].style.top =  30 + 'px';
+								ele[j].setAttribute("data-line",j+1);
+							}
+						}
+					}
+					else{
+						continue;
+					}
+				}
+				for(let i = 0; i<row; i++){
+					this.columnGroup = document.querySelectorAll(`div[data-line='${i}']`);
+					this.calculateFirstHeight(i-1,this.columnGroup);
+				}
+				for(let j = column; j<ele.length; j++){
+					this.getTheMin();
+					ele[j].style.top = this.columnHeight[this.min] + 30 + parseInt( j / 5)*10 + 'px';
+					this.columnHeight[this.min] = parseInt(this.columnHeight[this.min]) + ele[j].offsetHeight;
+					ele[j].setAttribute("data-line",this.min);
+					if(this.min ==0){
+						ele[j].style.left = 30 + 'px';
+					}
+					else{
+						ele[j].style.left = this.min*230 + 30 + 10*this.min +'px';
+					}
+				}
+			},
+			getTheMin(){
+				this.min = this.columnHeight[0];
+				for(let i = 0; i<this.columnHeight.length; i++){
+					this.columnHeight[this.min]<=this.columnHeight[i]?this.min = this.min : this.min = i;
 					
-		// 		}
-		// 	},
-		// 	calculateFirstHeight(column,ele){
-		// 		for(let h = 0; h<ele.length; h++){
-		// 			if(this.columnHeight[column]){
-		// 				console.log(ele[h].offsetHeight)
-		// 				this.columnHeight[column] = parseInt(this.columnHeight[column]) + ele[h].offsetHeight;
-		// 			}
-		// 			else{
-		// 				console.log(ele[h].offsetHeight)
-		// 				this.columnHeight[column] = 0;
-		// 				this.columnHeight[column] = parseInt(this.columnHeight[column]) + ele[h].offsetHeight;
-		// 			}
-		// 		}
-		// 	},
+				}
+			},
+			calculateFirstHeight(column,ele){
+				for(let h = 0; h<ele.length; h++){
+					if(this.columnHeight[column]){
+						console.log(ele[h].offsetHeight)
+						this.columnHeight[column] = parseInt(this.columnHeight[column]) + ele[h].offsetHeight;
+					}
+					else{
+						console.log(ele[h].offsetHeight)
+						this.columnHeight[column] = 0;
+						this.columnHeight[column] = parseInt(this.columnHeight[column]) + ele[h].offsetHeight;
+					}
+				}
+			},
 
-		// }
-		// demo.mapInit('box7-container','box7-item',230);
+		}
+		demo.mapInit('box7-container','box7-item',230);
 
 		//下滚滚动条，元素自上而下进入
 		//不受滚动高度控制
-		window.onscroll = function(){
-			let [ele1,ele2,ele3] = [document.getElementsByClassName('b9-updown')[0],
-			document.getElementsByClassName('b9-updown')[1],
-			document.getElementsByClassName('b9-updown')[2],]
-			if(document.documentElement.scrollTop>=500){
-				ele1.style.opacity = 1;
-				ele1.style.transition = "all 0.3s ease-out";
-				ele1.style.webkitTransform = 'translate(270px,170px)';
+		// window.onscroll = function(){
+		// 	console.log(document.documentElement.scrollTop)
+		// 	let [ele1,ele2,ele3] = [document.getElementsByClassName('b9-updown')[0],
+		// 	document.getElementsByClassName('b9-updown')[1],
+		// 	document.getElementsByClassName('b9-updown')[2],]
+		// 	if(document.documentElement.scrollTop>=8000){
+		// 		ele1.style.opacity = 1;
+		// 		ele1.style.transition = "all 0.3s ease-out";
+		// 		ele1.style.webkitTransform = 'translate(270px,170px)';
 
-				ele2.style.opacity = 1;
-				ele2.style.transition = "all 0.5s ease-out";
-				ele2.style.webkitTransform = 'translate(270px,170px)';
+		// 		ele2.style.opacity = 1;
+		// 		ele2.style.transition = "all 0.5s ease-out";
+		// 		ele2.style.webkitTransform = 'translate(270px,170px)';
 
-				ele3.style.opacity = 1;
-				ele3.style.transition = "all 0.7s ease-out";
-				ele3.style.webkitTransform = 'translate(270px,170px)';
-				}
-				else if(document.documentElement.scrollTop<500){
-				ele1.style.opacity = 0;
-				ele1.style.transition = "all 0.3s ease-out";
-				ele1.style.webkitTransform = 'translate(270px,-250px)';
+		// 		ele3.style.opacity = 1;
+		// 		ele3.style.transition = "all 0.7s ease-out";
+		// 		ele3.style.webkitTransform = 'translate(270px,170px)';
+		// 		}
+		// 		else if(document.documentElement.scrollTop<8000){
+		// 		ele1.style.opacity = 0;
+		// 		ele1.style.transition = "all 0.3s ease-out";
+		// 		ele1.style.webkitTransform = 'translate(270px,-250px)';
 
-				ele2.style.opacity = 0;
-				ele2.style.transition = "all 0.5s ease-out";
-				ele2.style.webkitTransform = 'translate(270px,-250px)';
+		// 		ele2.style.opacity = 0;
+		// 		ele2.style.transition = "all 0.5s ease-out";
+		// 		ele2.style.webkitTransform = 'translate(270px,-250px)';
 
-				ele3.style.opacity = 0;
-				ele3.style.transition = "all 0.7s ease-out";
-				ele3.style.webkitTransform = 'translate(270px,-250px)';
+		// 		ele3.style.opacity = 0;
+		// 		ele3.style.transition = "all 0.7s ease-out";
+		// 		ele3.style.webkitTransform = 'translate(270px,-250px)';
 
 		
 
-			}
-		}
+		// 	}
+		// }
 
 		 //下滚滚动条，元素自上而下进入
 		//受滚动高度控制
-		// window.onscroll = function(){
-		// 	let [ele1,ele2,ele3] = [document.getElementsByClassName('b9-updown')[0],
-		//  	document.getElementsByClassName('b9-updown')[1],
-		//  	document.getElementsByClassName('b9-updown')[2],]
-		// 	//  250主要是为了让子元素超出盒子隐藏掉，611则是让子元素到达制定位置
-		// 	//  1.5是步长，越大越快
-		// 	if(document.documentElement.scrollTop>=250&&document.documentElement.scrollTop<=611){
-		// 		let [step1,step2,step3] = [(document.documentElement.scrollTop - 500)*1.5,
-		// 		(document.documentElement.scrollTop - 500)*2.5,
-		// 		(document.documentElement.scrollTop - 500)*3.5,]
-		// 		//最快那个到达后，其余的应该马上到达，否则最快的那个会超出再弹回来
-		// 		if(step3>=165.75){
-		// 			ele1.style.transition = 'all .3s';
-		// 			ele1.style.webkitTransform = `translate(270px,165.75px)`;
-		// 			ele2.style.transition = 'all .2s';
-		// 			ele2.style.webkitTransform = `translate(270px,165.75px)`;
-		// 			ele3.style.transition = 'all .1s';
-		// 			ele3.style.webkitTransform = `translate(270px,165.75px)`;
-		// 		}
-		// 		else{
-		// 			ele1.style.transition = 'all 0s';
-		// 			ele1.style.webkitTransform = `translate(270px,${step1}px)`;
-		// 			ele2.style.transition = 'all 0s';
-		// 			ele2.style.webkitTransform = `translate(270px,${step2}px)`;
-		// 			ele3.style.transition = 'all 0s';
-		// 			ele3.style.webkitTransform = `translate(270px,${step3}px)`;
-		// 		}
+		window.onscroll = function(){
+			let [ele1,ele2,ele3] = [document.getElementsByClassName('b9-updown')[0],
+		 	document.getElementsByClassName('b9-updown')[1],
+		 	document.getElementsByClassName('b9-updown')[2],]
+			//  250主要是为了让子元素超出盒子隐藏掉，611则是让子元素到达制定位置
+			//  1.5是步长，越大越快
+			if(document.documentElement.scrollTop>=8000&&document.documentElement.scrollTop<=8361){
+				let [step1,step2,step3] = [(document.documentElement.scrollTop - 8250)*0.7,
+				(document.documentElement.scrollTop - 8250)*1.7,
+				(document.documentElement.scrollTop - 8250)*2.7,]
+				//最快那个到达后，其余的应该马上到达，否则最快的那个会超出再弹回来
+				if(step3>=165.75){
+					ele1.style.transition = 'all .3s';
+					ele1.style.webkitTransform = `translate(270px,165.75px)`;
+					ele2.style.transition = 'all .2s';
+					ele2.style.webkitTransform = `translate(270px,165.75px)`;
+					ele3.style.transition = 'all .1s';
+					ele3.style.webkitTransform = `translate(270px,165.75px)`;
+				}
+				else{
+					ele1.style.transition = 'all 0s';
+					ele1.style.webkitTransform = `translate(270px,${step1}px)`;
+					ele2.style.transition = 'all 0s';
+					ele2.style.webkitTransform = `translate(270px,${step2}px)`;
+					ele3.style.transition = 'all 0s';
+					ele3.style.webkitTransform = `translate(270px,${step3}px)`;
+				}
 					
 				
-		//  	}
-		// 	 //到达制定位置不能再动
-		// 	else if(document.documentElement.scrollTop>611){
-		// 		ele1.style.transition = 'all .3s';
-		// 		ele1.style.webkitTransform = `translate(270px,165.75px)`;
-		// 		ele2.style.transition = 'all .2s';
-		// 		ele2.style.webkitTransform = `translate(270px,165.75px)`;
-		// 		ele3.style.transition = 'all .1s';
-		// 		ele3.style.webkitTransform = `translate(270px,165.75px)`;
-		// 	}
-		// 	//防止回复过程中卡住
-		// 	else if(document.documentElement.scrollTop<250){
-		// 		ele1.style.transition = 'all .3s';
-		// 		ele1.style.webkitTransform = `translate(270px,-250px)`;
-		// 		ele2.style.transition = 'all .2s';
-		// 		ele2.style.webkitTransform = `translate(270px,-250px)`;
-		// 		ele3.style.transition = 'all .1s';
-		// 		ele3.style.webkitTransform = `translate(270px,-250px)`;
-		// 	}
+		 	}
+			 //到达制定位置不能再动
+			else if(document.documentElement.scrollTop>8361){
+				ele1.style.transition = 'all .3s';
+				ele1.style.webkitTransform = `translate(270px,165.75px)`;
+				ele2.style.transition = 'all .2s';
+				ele2.style.webkitTransform = `translate(270px,165.75px)`;
+				ele3.style.transition = 'all .1s';
+				ele3.style.webkitTransform = `translate(270px,165.75px)`;
+			}
+			//防止回复过程中卡住
+			else if(document.documentElement.scrollTop<8000){
+				ele1.style.transition = 'all .3s';
+				ele1.style.webkitTransform = `translate(270px,-250px)`;
+				ele2.style.transition = 'all .2s';
+				ele2.style.webkitTransform = `translate(270px,-250px)`;
+				ele3.style.transition = 'all .1s';
+				ele3.style.webkitTransform = `translate(270px,-250px)`;
+			}
 		
-		// }
+			//下拉滚动条 元素旋转
+		let box = document.getElementsByClassName('b9-box')[0];
+		let ele = document.getElementsByClassName('b9-rotate');
+		if(document.documentElement.scrollTop>=9000){
+			let step = (document.documentElement.scrollTop - 9000)*0.3;
+			if(step<=150){
+				box.style.transform = `rotateX(${step}deg) rotateZ(${step}deg)`;
+				box.style.transition = '0s';
+				for(let i =0;i<ele.length;i++){
+					ele[i].style.transition = '0s';
+					ele[i].style.transformOrigin = `center center -${step*0.3}px`;
+				}
+			}
+			else{
+				box.style.transition = 'all .3s';
+				box.style.transform = `rotateX(150deg) rotateZ(150deg)`;
+				for(let j =0;j<ele.length;j++){
+					ele[j].style.transition = 'all .3s';
+					ele[j].style.transformOrigin = `center center -40px`;
+				}
+			}
+			
+		}
+		else if(document.documentElement.scrollTop<9000){
+			box.style.transition = 'all .3s';
+			box.style.transform = `rotateX(0deg) rotateZ(0deg)`;
+			for(let j =0;j<ele.length;j++){
+				ele[j].style.transition = 'all .3s';
+				ele[j].style.transformOrigin = `center center 0px`;
+			}
+		}
+		}
 
 
-		//下拉滚动条 元素旋转
-		// window.onscroll = function(){
-		// 	let box = document.getElementsByClassName('b9-box')[0];
-		// 	let ele = document.getElementsByClassName('b9-rotate');
-		// 	if(document.documentElement.scrollTop>=1500){
-		// 		let step = (document.documentElement.scrollTop - 1500)*0.3;
-		// 		if(step<=150){
-		// 			box.style.transform = `rotateX(${step}deg) rotateZ(${step}deg)`;
-		// 			box.style.transition = '0s';
-		// 			for(let i =0;i<ele.length;i++){
-		// 				ele[i].style.transition = '0s';
-		// 				ele[i].style.transformOrigin = `center center -${step*0.3}px`;
-		// 			}
-		// 		}
-		// 		else{
-		// 			box.style.transition = 'all .3s';
-		// 			box.style.transform = `rotateX(150deg) rotateZ(150deg)`;
-		// 			for(let j =0;j<ele.length;j++){
-		// 				ele[j].style.transition = 'all .3s';
-		// 				ele[j].style.transformOrigin = `center center -40px`;
-		// 			}
-		// 		}
-				
-		// 	}
-		// 	else if(document.documentElement.scrollTop<1500){
-		// 		box.style.transition = 'all .3s';
-		// 		box.style.transform = `rotateX(0deg) rotateZ(0deg)`;
-		// 		for(let j =0;j<ele.length;j++){
-		// 			ele[j].style.transition = 'all .3s';
-		// 			ele[j].style.transformOrigin = `center center 0px`;
-		// 		}
-		// 	}
-		// }
+		
+		
 	</script>
 </body>
 </html>
