@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title></title>
+	<link rel="stylesheet" href="basic.css">
+	<link rel="stylesheet" href="box1.css">
+	<link rel="stylesheet" href="box2.css">
+	<link rel="stylesheet" href="box3.css">
+	<link rel="stylesheet" href="box4.css">
+	<link rel="stylesheet" href="box5.css">
+	<link rel="stylesheet" href="box6.css">
+	<link rel="stylesheet" href="box7.css">
+	<link rel="stylesheet" href="box8.css">
+	<link rel="stylesheet" href="box9.css">
+	<link rel="stylesheet" href="box10.css">
+</head>
+<body>
+	<!-- <h1>盒子不用保持宽高比，但子元素必须保持宽高比（float除外）</h1>
+	<br>
+	<hr>
+	<h2>左右浮动，（缩放时）盒子是否撑开都行，内容也可以换行,写死width</h2>
+	<h2>盒子不适合使用保持宽高比，建议写死高度或不写。</h2>
+	<h3>写不写高度，盒子的padding用rem,px或者%效果相同，撑开盒子（无论float）</h3>
+	<div class="box">
+		<div class="container box1-container">
+			<div class="box1-left">软文咖媒体发稿平台以资源+策略+技术的方式让品牌传播更简单高效！</div>
+			<div class="box1-right">咨询电话：0755-82633905</div>
+		</div>
+	</div>
+	<h2>无高度，左右浮动，当左边（或右边）更高(定高)，矮的一边对齐上中下</h2>
+	<h3>矮的一边为纯文字或元素,无论高的有多高，默认对齐上</h3>
+	<h3>为矮的一边设置盒子，高度等于高的那边,盒子display：table-cell，配合vertical-align,盒子里有float,absolute会失效，所以float要写在外面的盒子里</h3>
+	<div class="box">
+		<div class="container box2-container">
+			<div class="box2-left">
+				<img src="https://img.alicdn.com/tps/i4/TB1LdZNjxv1gK0jSZFFtKb0sXXa.gif" alt="">
+			</div>
+			<div class="box2-right">
+				<div class="box2-box">
+					软文咖媒体发稿平台以资源+策略+技术的方式让品牌传播更简单高效！
+				</div>
+			</div>
+		</div>
+	</div>
+	<h2>无高度，左右浮动，当左边（或右边）更高(保持宽高比)，矮的一边对齐上中下</h2>
+	<h3>与前者效果一致</h3>
+	<div class="box">
+		<div class="container box3-container">
+			<div class="box3-left"></div>
+			<div class="box3-right">
+				<div class="box3-box">
+					软文咖媒体发稿平台以资源+策略+技术的方式让品牌传播更简单高效！
+				</div>
+			</div>
+		</div>
+	</div>
+	<h2>input与label互相对齐</h2>
+	<h3>起码有一个盒子有固定宽度才不会错位，居中时外面要有个div,或者自身是block</h3>
+	<div class="box">
+		<div class="container box4-container">
+			<div class="user-box">
+				<h3 style="color: white;padding:20px 0;">登录</h3>
+				<div class="form-box">
+					<label for=""></label>
+					<input type="text">
+				</div>
+				<div class="form-box">
+					<label for=""></label>
+					<input type="text">
+				</div>
+				<div class="form-box">
+					<label for=""></label>
+					<input type="text">
+				</div>
+				<button>登录</button>
+			</div>
+		</div>
+	</div>
+	<h2>竖向瀑布流（css）</h2>
+	<h3>火狐兼容性差</h3>
+	<h3>column-count规定盒子内元素显示的列数</h3>
+	<h3>column-gap代表列之间的间隙，同一个盒子内的文字有效，若盒子里还有盒子则失效。</h3>
+	<h3>盒子内的子元素使用break-inside:avoid;</h3>
+	<div class="box">
+		<div class="container box5-container">
+			<div class="box5-item"><i>1</i></div>
+			<div class="box5-item"><i>2</i></div>
+			<div class="box5-item"><i>3</i></div>
+			<div class="box5-item"><i>4</i></div>
+			<div class="box5-item"><i>5</i></div>
+			<div class="box5-item"><i>6</i></div>
+			<div class="box5-item"><i>7</i></div>
+			<div class="box5-item"><i>8</i></div>
+			<div class="box5-item"><i>9</i></div>
+			<div class="box5-item"><i>10</i></div>
+			<div class="box5-item"><i>11</i></div>
+			<div class="box5-item"><i>12</i></div>
+			<div class="box5-item"><i>13</i></div>
+			<div class="box5-item"><i>14</i></div>
+			<div class="box5-item"><i>15</i></div>
+		</div>
+	</div>
+	<h2>横向瀑布流（css）</h2>
+	<h3>ie兼容性差</h3>
+	<div class="box">
+			<div class="container box6-container">
+				<i>1</i>
+				<i>2</i>
+				<i>3</i>
+				<i>4</i>
+				<i>5</i>
+				<i>6</i>
+				<i>7</i>
+				<i>8</i>
+				<i>9</i>
+				<i>10</i>
+				<i>11</i>
+				<i>12</i>
+				<i>13</i>
+				<i>14</i>
+				<i>15</i>
+			</div>
+		</div>
+		<h2>竖向瀑布流（js）</h2>
+		<h3>bug1:上下间距（应该按照列中数目）</h3>
+		<h3>bug2：当动态改变时，间距异常</h3>
+		<h3>bug3：盒子没有动态计算</h3>
+		<div class="box">
+			<div class="container box7-container">
+				<div class="box7-item"><i>1</i></div>
+				<div class="box7-item"><i>2</i></div>
+				<div class="box7-item"><i>3</i></div>
+				<div class="box7-item"><i>4</i></div>
+				<div class="box7-item"><i>5</i></div>
+				<div class="box7-item"><i>6</i></div>
+				<div class="box7-item"><i>7</i></div>
+				<div class="box7-item"><i>8</i></div>
+				<div class="box7-item"><i>9</i></div>
+				<div class="box7-item"><i>10</i></div>
+				<div class="box7-item"><i>11</i></div>
+				<div class="box7-item"><i>12</i></div>
+				<div class="box7-item"><i>13</i></div>
+				<div class="box7-item"><i>14</i></div>
+				<div class="box7-item"><i>15</i></div>
+				<div class="box7-item"><i>16</i></div>
+				<div class="box7-item"><i>17</i></div>
+				<div class="box7-item"><i>18</i></div>
+				<div class="box7-item"><i>19</i></div>
+				<div class="box7-item"><i>20</i></div>
+				<div class="box7-item"><i>21</i></div>
+				<div class="box7-item"><i>22</i></div>
+				<div class="box7-item"><i>23</i></div>
+				<div class="box7-item"><i>24</i></div>
+				<div class="box7-item"><i>25</i></div>
+				<div class="box7-item"><i>26</i></div>
+				<div class="box7-item"><i>27</i></div>
+				<div class="box7-item"><i>28</i></div>
+				<div class="box7-item"><i>29</i></div>
+				<div class="box7-item"><i>30</i></div>
+			</div>
+		</div>
+		<h2>横向瀑布流（js）</h2>
+		<h2>文字超出隐藏</h2>
+		<h3>text-indent: 2em;首行缩进2个字 会导致伪装的省略号错位及最新省略失效</h3>
+		<h3>width,display:-webkit-box,-webkit-line-clamp限制第几行出现省略号，剩余
+			行正常显示,配合overflow隐藏其他行，-webkit-box-orient: vertical限制元素从上向下排列   必须写这几个  ie无效 </h3>
+		<h3>word-break设置英文超出换行 ie无效</h3>
+		<h3>height可省略 且设置后可能出现不同浏览器不一致情况，建议写上line-height</h3>
+		<h3>text-overflow: 可省略;</h3>
+		<div class="box">
+			<div class="container box8-container">
+				<div class="box8-item">
+					<img src="1.jpg" alt="">
+					<p>飞机拉对方杰拉德附近垃圾的发掘的；林凤娇阿里的肌肤垃圾地方垃圾地方垃圾附近奥朗德肌肤拉动健身房垃圾了对肌肤房间爱大家发动机</p>
+				</div>
+			</div>
+		</div> -->
+		<h2>下滚动动画，滚回收缩</h2>
+		<div class="box">
+			<div class="container box9-container">
+				<h2>2d移动</h2>
+				<h3>注意js控制transition（style.transition）和transform（webkitTransform）</h3>
+				<div class="box9-item">
+					<div class="b9-updown"></div>
+					<div class="b9-updown"></div>
+					<div class="b9-updown"></div>
+				</div>
+				<h2>3d旋转</h2>
+				<h3>perspective一定要写在有最外层,当然写在变形层也行，但是会造成旋转时透视不随着旋转变化</h3>
+				<h3>transform-style: preserve-3d;要写在次外层</h3>
+				<h3>transform-origin表示要变形的物体距离中心点的位置，例如left说明中心点在变形物体的右边</h3>
+				<div class="box9-item">
+					<div class="b9-box">
+						<div class="b9-rotate">
+							<div style="width:198px;height:198px;display: table-cell;vertical-align: middle;text-align: center;">
+							1
+							</div>
+						</div>
+						<div class="b9-rotate">
+							<div style="width:198px;height:198px;display: table-cell;vertical-align: middle;text-align: center;">
+							2
+							</div>
+						</div>
+						<div class="b9-rotate">
+							<div style="width:198px;height:198px;display: table-cell;vertical-align: middle;text-align: center;">
+							3
+							</div>
+						</div>
+						<div class="b9-rotate">
+							<div style="width:198px;height:198px;display: table-cell;vertical-align: middle;text-align: center;">
+							4
+							</div>
+						</div>
+						<div class="b9-rotate">
+							<div style="width:198px;height:198px;display: table-cell;vertical-align: middle;text-align: center;">
+							5
+							</div>
+						</div>
+						<div class="b9-rotate">
+							<div style="width:198px;height:198px;display: table-cell;vertical-align: middle;text-align: center;">
+							6
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+		</div>
+		<!-- <h2>通过改变transform-origin来改变变形发生的方向</h2>
+		<h2>可以让hover实现两段动画</h2>
+		<div class="box">
+			<div class="container box10-container">
+				<p class="box10">MENU</p>
+			</div>
+		</div> -->
+	<script>
+		//遍历所有的父元素
+		//function searchFromRoot(obj){
+		//	obj = obj.type?obj.target:obj;
+		//	if(obj.parentNode&&obj.parentNode.localName!=='html'){
+		//		obj.parentNode.classList.add('current');
+		//		obj = obj.parentNode;
+		//		searchFromRoot(obj);
+		//	}
+		//	//else{
+		//	//	searchFromChild(obj);
+		//	//}
+		//}
+
+		//遍历所有子元素
+		//function searchFromChild(obj){
+		//	obj = obj.type?obj.target:obj;
+        //    for(var i in obj.childNodes){
+        //       if(obj.childNodes[i]){
+		//		  if(obj.childNodes[i].nodeName!=='#text'&&typeof(obj.childNodes[i])=='object'){
+		//			obj.childNodes[i].classList.add('current');
+		//			searchFromChild(obj.childNodes[i]);
+        //          }
+        //          else{
+		//			continue;
+        //          }
+        //       }
+        //       else{
+        //          continue;
+        //       }
+        //    }
+		//}
+
+		//竖向瀑布流
+		// let demo = {
+		// 	column:0,
+		// 	map_width:0,
+		// 	item_count:0,
+		// 	row:0,
+		// 	columnHeight:[],
+		// 	min:0,
+		// 	columnGroup:{},
+		// 	mapInit(map, item_count, item_width){
+		// 		let ele = document.getElementsByClassName(item_count);
+		// 		map_width = document.getElementsByClassName(map)[0].offsetWidth;//画布宽度
+		// 		column = Math.floor( map_width / item_width );//计算后列数
+		// 		row = Math.ceil( ele.length / column );//计算行数
+		// 		this.itemSort(ele);
+		// 		console.log(this.columnHeight);
+		// 	},
+		// 	itemSort(ele){
+		// 		for(let i = 0; i<row; i++){
+		// 			if(i == 0){
+		// 				for(let j = 0; j<column; j++){
+		// 					if(j == 0){
+		// 						ele[j].style.left = j*230 + 30 + 'px';
+		// 						ele[j].style.top =  30 + 'px';
+		// 						ele[j].setAttribute("data-line",j+1);
+		// 					}
+		// 					else{
+		// 						ele[j].style.left = j*240 + 30 + 'px';
+		// 						ele[j].style.top =  30 + 'px';
+		// 						ele[j].setAttribute("data-line",j+1);
+		// 					}
+		// 				}
+		// 			}
+		// 			else{
+		// 				continue;
+		// 			}
+		// 		}
+		// 		for(let i = 0; i<row; i++){
+		// 			this.columnGroup = document.querySelectorAll(`div[data-line='${i}']`);
+		// 			this.calculateFirstHeight(i-1,this.columnGroup);
+		// 		}
+		// 		for(let j = column; j<ele.length; j++){
+		// 			this.getTheMin();
+		// 			ele[j].style.top = this.columnHeight[this.min] + 30 + parseInt( j / 5)*10 + 'px';
+		// 			this.columnHeight[this.min] = parseInt(this.columnHeight[this.min]) + ele[j].offsetHeight;
+		// 			ele[j].setAttribute("data-line",this.min);
+		// 			if(this.min ==0){
+		// 				ele[j].style.left = 30 + 'px';
+		// 			}
+		// 			else{
+		// 				ele[j].style.left = this.min*230 + 30 + 10*this.min +'px';
+		// 			}
+		// 		}
+		// 	},
+		// 	getTheMin(){
+		// 		this.min = this.columnHeight[0];
+		// 		for(let i = 0; i<this.columnHeight.length; i++){
+		// 			this.columnHeight[this.min]<=this.columnHeight[i]?this.min = this.min : this.min = i;
+					
+		// 		}
+		// 	},
+		// 	calculateFirstHeight(column,ele){
+		// 		for(let h = 0; h<ele.length; h++){
+		// 			if(this.columnHeight[column]){
+		// 				console.log(ele[h].offsetHeight)
+		// 				this.columnHeight[column] = parseInt(this.columnHeight[column]) + ele[h].offsetHeight;
+		// 			}
+		// 			else{
+		// 				console.log(ele[h].offsetHeight)
+		// 				this.columnHeight[column] = 0;
+		// 				this.columnHeight[column] = parseInt(this.columnHeight[column]) + ele[h].offsetHeight;
+		// 			}
+		// 		}
+		// 	},
+
+		// }
+		// demo.mapInit('box7-container','box7-item',230);
+
+		//下滚滚动条，元素自上而下进入
+		//不受滚动高度控制
+		window.onscroll = function(){
+			let [ele1,ele2,ele3] = [document.getElementsByClassName('b9-updown')[0],
+			document.getElementsByClassName('b9-updown')[1],
+			document.getElementsByClassName('b9-updown')[2],]
+			if(document.documentElement.scrollTop>=500){
+				ele1.style.opacity = 1;
+				ele1.style.transition = "all 0.3s ease-out";
+				ele1.style.webkitTransform = 'translate(270px,170px)';
+
+				ele2.style.opacity = 1;
+				ele2.style.transition = "all 0.5s ease-out";
+				ele2.style.webkitTransform = 'translate(270px,170px)';
+
+				ele3.style.opacity = 1;
+				ele3.style.transition = "all 0.7s ease-out";
+				ele3.style.webkitTransform = 'translate(270px,170px)';
+				}
+				else if(document.documentElement.scrollTop<500){
+				ele1.style.opacity = 0;
+				ele1.style.transition = "all 0.3s ease-out";
+				ele1.style.webkitTransform = 'translate(270px,-250px)';
+
+				ele2.style.opacity = 0;
+				ele2.style.transition = "all 0.5s ease-out";
+				ele2.style.webkitTransform = 'translate(270px,-250px)';
+
+				ele3.style.opacity = 0;
+				ele3.style.transition = "all 0.7s ease-out";
+				ele3.style.webkitTransform = 'translate(270px,-250px)';
+
+		
+
+			}
+		}
+
+		 //下滚滚动条，元素自上而下进入
+		//受滚动高度控制
+		// window.onscroll = function(){
+		// 	let [ele1,ele2,ele3] = [document.getElementsByClassName('b9-updown')[0],
+		//  	document.getElementsByClassName('b9-updown')[1],
+		//  	document.getElementsByClassName('b9-updown')[2],]
+		// 	//  250主要是为了让子元素超出盒子隐藏掉，611则是让子元素到达制定位置
+		// 	//  1.5是步长，越大越快
+		// 	if(document.documentElement.scrollTop>=250&&document.documentElement.scrollTop<=611){
+		// 		let [step1,step2,step3] = [(document.documentElement.scrollTop - 500)*1.5,
+		// 		(document.documentElement.scrollTop - 500)*2.5,
+		// 		(document.documentElement.scrollTop - 500)*3.5,]
+		// 		//最快那个到达后，其余的应该马上到达，否则最快的那个会超出再弹回来
+		// 		if(step3>=165.75){
+		// 			ele1.style.transition = 'all .3s';
+		// 			ele1.style.webkitTransform = `translate(270px,165.75px)`;
+		// 			ele2.style.transition = 'all .2s';
+		// 			ele2.style.webkitTransform = `translate(270px,165.75px)`;
+		// 			ele3.style.transition = 'all .1s';
+		// 			ele3.style.webkitTransform = `translate(270px,165.75px)`;
+		// 		}
+		// 		else{
+		// 			ele1.style.transition = 'all 0s';
+		// 			ele1.style.webkitTransform = `translate(270px,${step1}px)`;
+		// 			ele2.style.transition = 'all 0s';
+		// 			ele2.style.webkitTransform = `translate(270px,${step2}px)`;
+		// 			ele3.style.transition = 'all 0s';
+		// 			ele3.style.webkitTransform = `translate(270px,${step3}px)`;
+		// 		}
+					
+				
+		//  	}
+		// 	 //到达制定位置不能再动
+		// 	else if(document.documentElement.scrollTop>611){
+		// 		ele1.style.transition = 'all .3s';
+		// 		ele1.style.webkitTransform = `translate(270px,165.75px)`;
+		// 		ele2.style.transition = 'all .2s';
+		// 		ele2.style.webkitTransform = `translate(270px,165.75px)`;
+		// 		ele3.style.transition = 'all .1s';
+		// 		ele3.style.webkitTransform = `translate(270px,165.75px)`;
+		// 	}
+		// 	//防止回复过程中卡住
+		// 	else if(document.documentElement.scrollTop<250){
+		// 		ele1.style.transition = 'all .3s';
+		// 		ele1.style.webkitTransform = `translate(270px,-250px)`;
+		// 		ele2.style.transition = 'all .2s';
+		// 		ele2.style.webkitTransform = `translate(270px,-250px)`;
+		// 		ele3.style.transition = 'all .1s';
+		// 		ele3.style.webkitTransform = `translate(270px,-250px)`;
+		// 	}
+		
+		// }
+
+
+		//下拉滚动条 元素旋转
+		// window.onscroll = function(){
+		// 	let box = document.getElementsByClassName('b9-box')[0];
+		// 	let ele = document.getElementsByClassName('b9-rotate');
+		// 	if(document.documentElement.scrollTop>=1500){
+		// 		let step = (document.documentElement.scrollTop - 1500)*0.3;
+		// 		if(step<=150){
+		// 			box.style.transform = `rotateX(${step}deg) rotateZ(${step}deg)`;
+		// 			box.style.transition = '0s';
+		// 			for(let i =0;i<ele.length;i++){
+		// 				ele[i].style.transition = '0s';
+		// 				ele[i].style.transformOrigin = `center center -${step*0.3}px`;
+		// 			}
+		// 		}
+		// 		else{
+		// 			box.style.transition = 'all .3s';
+		// 			box.style.transform = `rotateX(150deg) rotateZ(150deg)`;
+		// 			for(let j =0;j<ele.length;j++){
+		// 				ele[j].style.transition = 'all .3s';
+		// 				ele[j].style.transformOrigin = `center center -40px`;
+		// 			}
+		// 		}
+				
+		// 	}
+		// 	else if(document.documentElement.scrollTop<1500){
+		// 		box.style.transition = 'all .3s';
+		// 		box.style.transform = `rotateX(0deg) rotateZ(0deg)`;
+		// 		for(let j =0;j<ele.length;j++){
+		// 			ele[j].style.transition = 'all .3s';
+		// 			ele[j].style.transformOrigin = `center center 0px`;
+		// 		}
+		// 	}
+		// }
+	</script>
+</body>
+</html>
