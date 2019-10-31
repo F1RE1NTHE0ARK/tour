@@ -1,7 +1,6 @@
 .box9-container{
     margin: 0 auto;
     padding:30px;
-    margin: 900px auto 0;
 }
 .box9-item{
     overflow: hidden;
@@ -44,16 +43,16 @@
     font-weight: lighter;
     background: rgba(109, 1, 15, 0.5);
     backface-visibility: visible;
-    transition: all .5s ease-in;
+    /* transition: all .5s ease-in; */
     transform-origin:center center 0px;
 }
 /* 不受控制 */
-.box9-item:hover .b9-box{
+/* .box9-item:hover .b9-box{
     transform:rotateZ(280deg) rotateX(280deg);
 }
 .box9-item:hover .b9-rotate{
     transform-origin:center center -100px;
-}
+} */
 .b9-rotate:nth-child(1){
     transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg)translate3d(0px,0px,100px);
 }
