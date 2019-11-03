@@ -128,36 +128,36 @@
 		<h3>bug3：盒子没有动态计算</h3>
 		<div class="box">
 			<div class="container box7-container">
-				<div class="box7-item"><i>1</i></div>
-				<div class="box7-item"><i>2</i></div>
-				<div class="box7-item"><i>3</i></div>
-				<div class="box7-item"><i>4</i></div>
-				<div class="box7-item"><i>5</i></div>
-				<div class="box7-item"><i>6</i></div>
-				<div class="box7-item"><i>7</i></div>
-				<div class="box7-item"><i>8</i></div>
-				<div class="box7-item"><i>9</i></div>
-				<div class="box7-item"><i>10</i></div>
-				<div class="box7-item"><i>11</i></div>
-				<div class="box7-item"><i>12</i></div>
-				<div class="box7-item"><i>13</i></div>
-				<div class="box7-item"><i>14</i></div>
-				<div class="box7-item"><i>15</i></div>
-				<div class="box7-item"><i>16</i></div>
-				<div class="box7-item"><i>17</i></div>
-				<div class="box7-item"><i>18</i></div>
-				<div class="box7-item"><i>19</i></div>
-				<div class="box7-item"><i>20</i></div>
-				<div class="box7-item"><i>21</i></div>
-				<div class="box7-item"><i>22</i></div>
-				<div class="box7-item"><i>23</i></div>
-				<div class="box7-item"><i>24</i></div>
-				<div class="box7-item"><i>25</i></div>
-				<div class="box7-item"><i>26</i></div>
-				<div class="box7-item"><i>27</i></div>
-				<div class="box7-item"><i>28</i></div>
-				<div class="box7-item"><i>29</i></div>
-				<div class="box7-item"><i>30</i></div>
+				<div class="box7-item"><p>1</p><img src="1.jpg" alt=""></div>
+				<div class="box7-item"><p>2</p><img src="1.jpg" alt=""></div>
+				<div class="box7-item"><p>3</p><img src="1.jpg" alt=""></div>
+				<div class="box7-item"><p>3</p><img src="1.jpg" alt=""></div>
+				<div class="box7-item"><p>4</p><img src="1.jpg" alt=""></div>
+				<div class="box7-item"><p>5</p><img src="1.jpg" alt=""></div>
+				<div class="box7-item"><p>6</p><img src="1.jpg" alt=""></div>
+				<div class="box7-item"><p>7</p><img src="1.jpg" alt=""></div>
+				<div class="box7-item"><p>8</p><img src="1.jpg" alt=""></div>
+				<div class="box7-item"><p>9</p><img src="1.jpg" alt=""></div>
+				<div class="box7-item"><p>10</p><img src="1.jpg" alt=""></div>
+				<div class="box7-item"><p>11</p><img src="1.jpg" alt=""></div>
+				<div class="box7-item"><p>12</p><img src="1.jpg" alt=""></div>
+				<div class="box7-item"><p>13</p><img src="1.jpg" alt=""></div>
+				<div class="box7-item"><p>14</p><img src="1.jpg" alt=""></div>
+				<div class="box7-item"><p>16</p><img src="1.jpg" alt=""></div>
+				<div class="box7-item"><p>17</p><img src="1.jpg" alt=""></div>
+				<div class="box7-item"><p>18</p><img src="1.jpg" alt=""></div>
+				<div class="box7-item"><p>19</p><img src="1.jpg" alt=""></div>
+				<div class="box7-item"><p>20</p><img src="1.jpg" alt=""></div>
+				<div class="box7-item"><p>21</p><img src="1.jpg" alt=""></div>
+				<div class="box7-item"><p>22</p><img src="1.jpg" alt=""></div>
+				<div class="box7-item"><p>23</p><img src="1.jpg" alt=""></div>
+				<div class="box7-item"><p>24</p><img src="1.jpg" alt=""></div>
+				<div class="box7-item"><p>25</p><img src="1.jpg" alt=""></div>
+				<div class="box7-item"><p>26</p><img src="1.jpg" alt=""></div>
+				<div class="box7-item"><p>27</p><img src="1.jpg" alt=""></div>
+				<div class="box7-item"><p>28</p><img src="1.jpg" alt=""></div>
+				<div class="box7-item"><p>29</p><img src="1.jpg" alt=""></div>
+				<div class="box7-item"><p>30</p><img src="1.jpg" alt=""></div>
 			</div>
 		</div>
 		<h2>横向瀑布流（js）</h2>
@@ -268,83 +268,62 @@
 		//}
 
 		//竖向瀑布流
-		let demo = {
-			column:0,
-			map_width:0,
-			item_count:0,
-			row:0,
-			columnHeight:[],
-			min:0,
-			columnGroup:{},
-			mapInit(map, item_count, item_width){
-				let ele = document.getElementsByClassName(item_count);
-				map_width = document.getElementsByClassName(map)[0].offsetWidth;//画布宽度
-				column = Math.floor( map_width / item_width );//计算后列数
-				row = Math.ceil( ele.length / column );//计算行数
-				this.itemSort(ele);
-				console.log(this.columnHeight);
-			},
-			itemSort(ele){
-				for(let i = 0; i<row; i++){
-					if(i == 0){
-						for(let j = 0; j<column; j++){
-							if(j == 0){
-								ele[j].style.left = j*230 + 30 + 'px';
-								ele[j].style.top =  30 + 'px';
-								ele[j].setAttribute("data-line",j+1);
-							}
-							else{
-								ele[j].style.left = j*240 + 30 + 'px';
-								ele[j].style.top =  30 + 'px';
-								ele[j].setAttribute("data-line",j+1);
-							}
-						}
-					}
-					else{
-						continue;
-					}
+		
+		let verticalWaterFall = {
+			columns: 0,//列数
+			rows: 0,//行数
+			colHeight:[],//每列的总高度
+			min:0,//最小高度列
+			max:0,//最大高度列
+			childGroup:document.getElementsByClassName('box7-item'),//子元素集合
+			childWidth:0,//子元素宽度
+			init:function(){ //初始化画布
+				let boxWidth = document.getElementsByClassName('box7-container')[0].offsetWidth;//盒子总宽度
+				this.childWidth = document.getElementsByClassName('box7-item')[0].offsetWidth;
+				this.columns = Math.floor( (boxWidth / this.childWidth).toFixed(1) );
+				this.rows = Math.ceil( this.childGroup.length / this.columns);
+				for(let j = 0; j<5; j++){						//最大列数的第一行元素复位，防止
+						this.childGroup[j].style.left = 0+'px';
+						this.childGroup[j].style.top = 0+'px';			//列数减少时元素依然在原位。
+						this.childGroup[j].setAttribute("data-column",'');
+						this.colHeight = [];					//清空原来的总高度
 				}
-				for(let i = 0; i<row; i++){
-					this.columnGroup = document.querySelectorAll(`div[data-line='${i}']`);
-					this.calculateFirstHeight(i-1,this.columnGroup);
-				}
-				for(let j = column; j<ele.length; j++){
-					this.getTheMin();
-					ele[j].style.top = this.columnHeight[this.min] + 30 + parseInt( j / 5)*10 + 'px';
-					this.columnHeight[this.min] = parseInt(this.columnHeight[this.min]) + ele[j].offsetHeight;
-					ele[j].setAttribute("data-line",this.min);
-					if(this.min ==0){
-						ele[j].style.left = 30 + 'px';
-					}
-					else{
-						ele[j].style.left = this.min*230 + 30 + 10*this.min +'px';
-					}
+				for(let i = 0; i<this.columns; i++){				//将第一行排好
+					this.childGroup[i].style.left = i*this.childWidth+'px';
+					this.childGroup[i].setAttribute("data-column", i);
+					this.colHeight[i] = this.childGroup[i].offsetHeight;
 				}
 			},
-			getTheMin(){
-				this.min = this.columnHeight[0];
-				for(let i = 0; i<this.columnHeight.length; i++){
-					this.columnHeight[this.min]<=this.columnHeight[i]?this.min = this.min : this.min = i;
-					
+			findMin:function(){
+				for(let col = 0; col<this.colHeight.length; col++){		//找到了高度总和最小的一列
+					this.colHeight[this.min]<this.colHeight[col]?this.min = this.min:this.min = col;
 				}
 			},
-			calculateFirstHeight(column,ele){
-				for(let h = 0; h<ele.length; h++){
-					if(this.columnHeight[column]){
-						console.log(ele[h].offsetHeight)
-						this.columnHeight[column] = parseInt(this.columnHeight[column]) + ele[h].offsetHeight;
-					}
-					else{
-						console.log(ele[h].offsetHeight)
-						this.columnHeight[column] = 0;
-						this.columnHeight[column] = parseInt(this.columnHeight[column]) + ele[h].offsetHeight;
-					}
+			findMax:function(){
+				for(let col = 0; col<this.colHeight.length; col++){		//找到了高度总和最大的一列
+					this.colHeight[this.max]>this.colHeight[col]?this.max = this.max:this.max = col;
 				}
 			},
-
+			sort:function(){ //排列剩余的元素
+				for(let k = this.columns; k<this.childGroup.length; k++){ //从第二行的子元素开始排列
+					this.findMin();
+					this.childGroup[k].style.top = this.colHeight[this.min] + 'px';
+					this.childGroup[k].style.left = this.min*this.childWidth + 'px';
+					this.childGroup[k].setAttribute("data-column",this.min);
+					this.colHeight[this.min] += this.childGroup[k].offsetHeight;
+				}
+				this.findMax();
+				document.getElementsByClassName('box7-container')[0].style.height = this.colHeight[this.max] + 'px';
+			}
 		}
-		demo.mapInit('box7-container','box7-item',230);
-
+		window.onload = function(){
+			verticalWaterFall.init();
+			verticalWaterFall.sort();
+		}
+		window.onresize = function(){
+			verticalWaterFall.init();
+			verticalWaterFall.sort();
+		}
 		//下滚滚动条，元素自上而下进入
 		//不受滚动高度控制
 		// window.onscroll = function(){
