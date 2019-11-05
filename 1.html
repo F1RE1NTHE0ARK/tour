@@ -14,6 +14,7 @@
 	<link rel="stylesheet" href="box8.css">
 	<link rel="stylesheet" href="box9.css">
 	<link rel="stylesheet" href="box10.css">
+	<link rel="stylesheet" href="box11.css">
 </head>
 <body>
 	<h1>盒子不用保持宽高比，但子元素必须保持宽高比（float除外）</h1>
@@ -126,7 +127,7 @@
 		<h3>bug1:上下间距（应该按照列中数目）</h3>
 		<h3>bug2：当动态改变时，间距异常</h3>
 		<h3>bug3：盒子没有动态计算</h3>
-		<div class="box">
+		<!-- <div class="box">
 			<div class="container box7-container">
 				<div class="box7-item"><p>1</p><img src="1.jpg" alt=""></div>
 				<div class="box7-item"><p>2</p><img src="1.jpg" alt=""></div>
@@ -159,7 +160,7 @@
 				<div class="box7-item"><p>29</p><img src="1.jpg" alt=""></div>
 				<div class="box7-item"><p>30</p><img src="1.jpg" alt=""></div>
 			</div>
-		</div>
+		</div> -->
 		<h2>横向瀑布流（js）</h2>
 		<h2>文字超出隐藏</h2>
 		<h3>text-indent: 2em;首行缩进2个字 会导致伪装的省略号错位及最新省略失效</h3>
@@ -234,6 +235,14 @@
 				<p class="box10">MENU</p>
 			</div>
 		</div>
+		<h2>canvas画布</h2>
+		<div class="box">
+			<div class="container box11-container">
+				<canvas id="canvas1" class="box11-cvs1">
+					你的浏览器不支持canvas，请升级浏览器.浏览器不支持，显示此行文本
+				</canvas>
+			</div>
+		</div>
 	<script>
 		//遍历所有的父元素
 		//function searchFromRoot(obj){
@@ -269,65 +278,64 @@
 
 		//竖向瀑布流
 		
-		let verticalWaterFall = {
-			columns: 0,//列数
-			rows: 0,//行数
-			colHeight:[],//每列的总高度
-			min:0,//最小高度列
-			max:0,//最大高度列
-			childGroup:document.getElementsByClassName('box7-item'),//子元素集合
-			childWidth:0,//子元素宽度
-			init:function(){ //初始化画布
-				let boxWidth = document.getElementsByClassName('box7-container')[0].offsetWidth;//盒子总宽度
-				this.childWidth = document.getElementsByClassName('box7-item')[0].offsetWidth;
-				this.columns = Math.floor( (boxWidth / this.childWidth).toFixed(1) );
-				this.rows = Math.ceil( this.childGroup.length / this.columns);
-				for(let j = 0; j<5; j++){						//最大列数的第一行元素复位，防止
-						this.childGroup[j].style.left = 0+'px';
-						this.childGroup[j].style.top = 0+'px';			//列数减少时元素依然在原位。
-						this.childGroup[j].setAttribute("data-column",'');
-						this.colHeight = [];					//清空原来的总高度
-				}
-				for(let i = 0; i<this.columns; i++){				//将第一行排好
-					this.childGroup[i].style.left = i*this.childWidth+'px';
-					this.childGroup[i].setAttribute("data-column", i);
-					this.colHeight[i] = this.childGroup[i].offsetHeight;
-				}
-			},
-			findMin:function(){
-				for(let col = 0; col<this.colHeight.length; col++){		//找到了高度总和最小的一列
-					this.colHeight[this.min]<this.colHeight[col]?this.min = this.min:this.min = col;
-				}
-			},
-			findMax:function(){
-				for(let col = 0; col<this.colHeight.length; col++){		//找到了高度总和最大的一列
-					this.colHeight[this.max]>this.colHeight[col]?this.max = this.max:this.max = col;
-				}
-			},
-			sort:function(){ //排列剩余的元素
-				for(let k = this.columns; k<this.childGroup.length; k++){ //从第二行的子元素开始排列
-					this.findMin();
-					this.childGroup[k].style.top = this.colHeight[this.min] + 'px';
-					this.childGroup[k].style.left = this.min*this.childWidth + 'px';
-					this.childGroup[k].setAttribute("data-column",this.min);
-					this.colHeight[this.min] += this.childGroup[k].offsetHeight;
-				}
-				this.findMax();
-				document.getElementsByClassName('box7-container')[0].style.height = this.colHeight[this.max] + 'px';
-			}
-		}
-		window.onload = function(){
-			verticalWaterFall.init();
-			verticalWaterFall.sort();
-		}
-		window.onresize = function(){
-			verticalWaterFall.init();
-			verticalWaterFall.sort();
-		}
+		// let verticalWaterFall = {
+		// 	columns: 0,//列数
+		// 	rows: 0,//行数
+		// 	colHeight:[],//每列的总高度
+		// 	min:0,//最小高度列
+		// 	max:0,//最大高度列
+		// 	childGroup:document.getElementsByClassName('box7-item'),//子元素集合
+		// 	childWidth:0,//子元素宽度
+		// 	init:function(){ //初始化画布
+		// 		let boxWidth = document.getElementsByClassName('box7-container')[0].offsetWidth;//盒子总宽度
+		// 		this.childWidth = document.getElementsByClassName('box7-item')[0].offsetWidth;
+		// 		this.columns = Math.floor( (boxWidth / this.childWidth).toFixed(1) );
+		// 		this.rows = Math.ceil( this.childGroup.length / this.columns);
+		// 		for(let j = 0; j<5; j++){						//最大列数的第一行元素复位，防止
+		// 				this.childGroup[j].style.left = 0+'px';
+		// 				this.childGroup[j].style.top = 0+'px';			//列数减少时元素依然在原位。
+		// 				this.childGroup[j].setAttribute("data-column",'');
+		// 				this.colHeight = [];					//清空原来的总高度
+		// 		}
+		// 		for(let i = 0; i<this.columns; i++){				//将第一行排好
+		// 			this.childGroup[i].style.left = i*this.childWidth+'px';
+		// 			this.childGroup[i].setAttribute("data-column", i);
+		// 			this.colHeight[i] = this.childGroup[i].offsetHeight;
+		// 		}
+		// 	},
+		// 	findMin:function(){
+		// 		for(let col = 0; col<this.colHeight.length; col++){		//找到了高度总和最小的一列
+		// 			this.colHeight[this.min]<this.colHeight[col]?this.min = this.min:this.min = col;
+		// 		}
+		// 	},
+		// 	findMax:function(){
+		// 		for(let col = 0; col<this.colHeight.length; col++){		//找到了高度总和最大的一列
+		// 			this.colHeight[this.max]>this.colHeight[col]?this.max = this.max:this.max = col;
+		// 		}
+		// 	},
+		// 	sort:function(){ //排列剩余的元素
+		// 		for(let k = this.columns; k<this.childGroup.length; k++){ //从第二行的子元素开始排列
+		// 			this.findMin();
+		// 			this.childGroup[k].style.top = this.colHeight[this.min] + 'px';
+		// 			this.childGroup[k].style.left = this.min*this.childWidth + 'px';
+		// 			this.childGroup[k].setAttribute("data-column",this.min);
+		// 			this.colHeight[this.min] += this.childGroup[k].offsetHeight;
+		// 		}
+		// 		this.findMax();
+		// 		document.getElementsByClassName('box7-container')[0].style.height = this.colHeight[this.max] + 'px';
+		// 	}
+		// }
+		// window.onload = function(){
+		// 	verticalWaterFall.init();
+		// 	verticalWaterFall.sort();
+		// }
+		// window.onresize = function(){
+		// 	verticalWaterFall.init();
+		// 	verticalWaterFall.sort();
+		// }
 		//下滚滚动条，元素自上而下进入
 		//不受滚动高度控制
 		// window.onscroll = function(){
-		// 	console.log(document.documentElement.scrollTop)
 		// 	let [ele1,ele2,ele3] = [document.getElementsByClassName('b9-updown')[0],
 		// 	document.getElementsByClassName('b9-updown')[1],
 		// 	document.getElementsByClassName('b9-updown')[2],]
@@ -448,7 +456,34 @@
 
 
 		
-		
+		//canvas缩放闪烁
+		const bling = () =>{
+			let [max,step,canvas] = [	//step放大倍率，max最大放大倍率
+				0,1,document.getElementById('canvas1')
+			];
+			let ctx = canvas.getContext('2d');
+			ctx.fillStyle = 'white';
+			setInterval(function(){
+				if(step<max){
+					max = 2;
+					step+=0.01;
+				}
+				else{
+					max = 0;
+					step-=0.01;
+				}
+				ctx.beginPath();
+				ctx.clearRect(0,0,canvas.width,canvas.height);
+				ctx.save();
+				ctx.scale(step,step);
+				ctx.translate(-(50*(step-1))/step,-(50*(step-1))/step);
+				ctx.arc(50,50,20,0,2*Math.PI);
+				ctx.closePath();
+				ctx.fill();
+				ctx.restore();
+			},1000/60)
+		}
+		bling();
 	</script>
 </body>
 </html>
